@@ -1,0 +1,248 @@
+require:
+  - rubocop-rspec
+  - rubocop/rspec/focused
+
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'Gemfile'
+    - 'r_j-utils.gemspec'
+  TargetRubyVersion: 2.5
+  UseCache: true
+  CacheRootDirectory: 'tmp'
+
+#---
+
+Layout/AlignHash:
+  Enabled: false
+
+Layout/AlignParameters:
+  Enabled: false
+
+Layout/CaseIndentation:
+  EnforcedStyle: case
+
+Layout/DotPosition:
+  EnforcedStyle: leading
+
+Layout/EmptyLines:
+  Enabled: false
+
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+    - 'spec/**/*'
+    - 'apps/**/spec/**/*'
+    - 'lib/*/spec/**/*'
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundExceptionHandlingKeywords:
+  Enabled: false
+
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
+# explicit decision -- can revisit
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+
+# Note: This needs a mode for aligning the dots a la
+# Shift.where(true)
+#      .where(false)
+# Disabling since it doesn't match the common case
+Layout/MultilineOperationIndentation:
+  Enabled: false
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+# disabled to allow developers to align similar statements more nicely
+Layout/SpaceAroundOperators:
+  Enabled: false
+
+#---
+
+Lint/ShadowingOuterLocalVariable:
+  Enabled: false
+
+Lint/UnusedBlockArgument:
+  Enabled: false
+
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+#---
+
+# # default 15
+# Metrics/AbcSize:
+#   Max: 20
+#   Exclude:
+#     - 'spec/features/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'apps/**/spec/**/*'
+    - 'lib/**/spec/**/*'
+    - 'spec/**/*'
+
+Metrics/LineLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'apps/**/spec/**/*'
+    - 'lib/*/spec/**/*'
+    - 'config/initializers/**/*'
+  Max: 100
+
+# default 10
+Metrics/MethodLength:
+  Max: 17
+  Exclude:
+    - 'spec/features/**/*'
+    - 'db/migrate/*.rb'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'apps/**/spec/**/*'
+    - 'lib/*/spec/**/*'
+
+#---
+
+Naming/ClassAndModuleCamelCase:
+  Exclude:
+    - 'spec/**/*'
+    - 'apps/**/spec/**/*'
+    - 'lib/*/spec/**/*'
+
+#---
+
+# clarity over performance for now
+Performance/RedundantBlockCall:
+  Enabled: false
+
+#---
+
+Rails:
+  Enabled: true
+
+Rails/Date:
+  Enabled: true
+  EnforcedStyle: strict
+
+Rails/FindBy:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+# Rails/Output:
+#   Exclude:
+#     - 'lib/data_migration/**'
+
+Rails/TimeZone:
+  Enabled: true
+  EnforcedStyle: strict
+
+#--
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Enabled: false
+  Exclude:
+    - '**/spec/support/shared_examples'
+
+RSpec/ExpectActual:
+  Enabled: false
+
+RSpec/FilePath:
+  Enabled: false
+
+# RSpec/VerifiedDoubles:
+#   Enabled: true
+
+#--
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+Style/BarePercentLiterals:
+  EnforcedStyle: percent_q
+
+# would require do/end for multiline blocks
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/CollectionMethods:
+  PreferredMethods:
+    collect: 'map'
+    collect!: 'map!'
+    reduce: 'inject'
+    find: 'detect'
+
+Style/Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/Lambda:
+  Exclude:
+    - '**/graphql/**/*'
+
+# Style/LineEndConcatenation:
+#   Enabled: false
+
+# good standard, but cop also prevents common 2 line ternary statements
+Style/MultilineTernaryOperator:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+# Consider enabling - kwargs are often the better option
+Style/OptionHash:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/RaiseArgs:
+  EnforcedStyle: compact
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrivialAccessors:
+  Enabled: false
+
+# have found %Q often cleaner to read
+Style/UnneededPercentQ:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
